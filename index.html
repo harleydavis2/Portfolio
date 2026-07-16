@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harley Davis J A — Full Stack Developer &amp; AI Engineer</title>
+  <meta name="description" content="Harley Davis J A is a Full Stack Developer &amp; AI Engineer building production-grade MERN stack apps and AI/ML systems. Available for freelance &amp; collaborations.">
+  <meta property="og:title" content="Harley Davis J A — Full Stack Developer &amp; AI Engineer">
+  <meta property="og:description" content="Building full stack products and AI systems that make an impact.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230a0a0a%22/><text x=%2250%22 y=%2265%22 font-size=%2255%22 fill=%22%23E85002%22 text-anchor=%22middle%22 font-family=%22Arial Black%22>H</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__role">Full Stack Developer &amp; AI Engineer</span>
+      <div class="topbar__right">
+        <a class="topbar__cta" href="#contact">Available for freelance &amp; collaborations <span aria-hidden="true">→</span></a>
+        <button class="burger" id="burger-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-drawer">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ NAV DRAWER ============ -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+  <nav class="nav-drawer" id="nav-drawer" aria-label="Site navigation" aria-hidden="true">
+    <div class="nav-drawer__header">
+      <span class="nav-drawer__logo">HD</span>
+      <button class="nav-drawer__close" id="nav-close" aria-label="Close navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <ul class="nav-drawer__list">
+      <li><a href="#main"      class="nav-drawer__link" data-nav-close><span class="nav-drawer__num">01</span>Home</a></li>
+      <li><a href="#work"      class="nav-drawer__link" data-nav-close><span class="nav-drawer__num">02</span>Work</a></li>
+      <li><a href="#experience" class="nav-drawer__link" data-nav-close><span class="nav-drawer__num">03</span>Experience</a></li>
+      <li><a href="#about"     class="nav-drawer__link" data-nav-close><span class="nav-drawer__num">04</span>About</a></li>
+      <li><a href="#contact"   class="nav-drawer__link" data-nav-close><span class="nav-drawer__num">05</span>Contact</a></li>
+    </ul>
+    <div class="nav-drawer__footer">
+      <a href="https://github.com/harleydavis2" target="_blank" rel="noopener" class="nav-drawer__social" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/harley-davis-j-a-2b39b6249/" target="_blank" rel="noopener" class="nav-drawer__social" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3.2 8.75h3.5V21H3.2V8.75zM9.5 8.75h3.36v1.68h.05c.47-.87 1.6-1.78 3.3-1.78 3.53 0 4.18 2.32 4.18 5.34V21h-3.5v-6.28c0-1.5-.03-3.43-2.09-3.43-2.1 0-2.42 1.64-2.42 3.33V21H9.5V8.75z"/></svg>
+      </a>
+      <a href="mailto:harleydavisja2@gmail.com" class="nav-drawer__social" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero__bg-wordmark" aria-hidden="true">PORTFOLIO</div>
+
+      <div class="container hero__container">
+
+        <!-- Left: intro text -->
+        <div class="hero__intro" data-reveal>
+          <p class="hero__hi">Hi, I'm</p>
+          <h1 class="hero__name">Harley<br>Davis</h1>
+          <p class="hero__title">Full Stack Developer &amp; AI Engineer</p>
+          <p class="hero__bio">I build scalable web applications, AI-powered solutions, and real-world software that solves business problems — from MERN-stack ERPs to computer vision pipelines.</p>
+        </div>
+
+        <!-- Centre: portrait -->
+        <div class="hero__portrait" data-reveal>
+          <img
+            src="image.png"
+            alt="Harley Davis J A — Full Stack Developer & AI Engineer"
+            class="hero__photo"
+            loading="eager"
+          >
+        </div>
+
+        <!-- Right: badge + stats -->
+        <div class="hero__meta" data-reveal>
+          <div class="hero__badge" aria-hidden="true">
+            <span class="hero__badge-ring">
+              <svg viewBox="0 0 100 100">
+                <path id="circlePath" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none"/>
+                <text><textPath href="#circlePath">FULL STACK · AI/ML · COMPUTER VISION · </textPath></text>
+              </svg>
+            </span>
+            <span class="hero__badge-initials">HD</span>
+          </div>
+
+          <dl class="hero__stats">
+            <div class="hero__stat">
+              <dt>Based in</dt>
+              <dd>Hosur, India</dd>
+            </div>
+            <div class="hero__stat">
+              <dt>Education</dt>
+              <dd>B.Tech AI — 2026</dd>
+            </div>
+            <div class="hero__stat">
+              <dt>Available</dt>
+              <dd>Worldwide</dd>
+            </div>
+          </dl>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ FEATURED PROJECTS ============ -->
+    <section class="section" id="work" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">Featured Projects</p>
+          <a class="link-arrow" href="#work">View all projects <span aria-hidden="true">→</span></a>
+        </div>
+        <h2 id="work-heading" class="sr-only">Featured Projects</h2>
+
+        <div class="grid grid--3">
+          <article class="card card--project" data-reveal>
+            <div class="card__media card__media--01" aria-hidden="true">
+              <span class="card__tag">01</span>
+              <div class="card__media-content">
+                <p class="card__media-text">Live POS<br>for 50+<br>kitchens.</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Point of Sale System</h3>
+              <p class="card__category">MERN Stack · Production</p>
+              <p class="card__desc">Live production POS for food courts serving ~50 kitchens. Reduced billing errors by ~40% through automation. React UI + Node/Express REST APIs.</p>
+              <a class="card__link" href="https://app.eateszy.com" target="_blank" rel="noopener" aria-label="View POS System project">→</a>
+            </div>
+          </article>
+
+          <article class="card card--project" data-reveal>
+            <div class="card__media card__media--02" aria-hidden="true">
+              <span class="card__tag">02</span>
+              <div class="card__media-content card__media-content--center">
+                <p class="card__media-headline">BUILD<br>SMARTER.</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">ERP — Construction Management</h3>
+              <p class="card__category">React · Node.js · MongoDB · Tailwind</p>
+              <p class="card__desc">Complete ERP for Essaar Builders — Work Orders, BOQ, Labour Attendance, Steel Billing, Daily Progress &amp; Reports. ~60% efficiency gain.</p>
+              <a class="card__link" href="https://erp-for-essaar-builders.onrender.com" target="_blank" rel="noopener" aria-label="View ERP project">→</a>
+            </div>
+          </article>
+
+          <article class="card card--project" data-reveal>
+            <div class="card__media card__media--03" aria-hidden="true">
+              <span class="card__tag">03</span>
+              <div class="card__media-content">
+                <p class="card__media-text card__media-text--sm">97.2%<br>accuracy.<br>AI-powered.</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">MindEcho — AI Voice Biomarker</h3>
+              <p class="card__category">AI/ML · Python · CNN · MLP</p>
+              <p class="card__desc">Mental health detection using voice, text &amp; emotion signals. MLP, CNN &amp; Logistic Regression achieving 97.2% accuracy.</p>
+              <a class="card__link" href="#work" aria-label="View MindEcho project">→</a>
+            </div>
+          </article>
+
+          <article class="card card--project" data-reveal>
+            <div class="card__media card__media--04" aria-hidden="true">
+              <span class="card__tag">04</span>
+              <div class="card__media-content card__media-content--center">
+                <p class="card__media-headline">ORDER<br>SMARTER.</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Centralized Food Court Platform</h3>
+              <p class="card__category">Next.js · TypeScript · PostgreSQL · Drizzle</p>
+              <p class="card__desc">Scalable multi-kitchen ordering platform with seat-based ordering, cart grouping, Razorpay payments, kitchen management &amp; admin dashboard.</p>
+              <a class="card__link" href="#work" aria-label="View Food Court project">→</a>
+            </div>
+          </article>
+
+          <article class="card card--project" data-reveal>
+            <div class="card__media card__media--05" aria-hidden="true">
+              <span class="card__tag">05</span>
+              <div class="card__media-content">
+                <p class="card__media-text card__media-text--sm">AI repo<br>intelligence<br>platform.</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Archaeon — AI Repo Intelligence</h3>
+              <p class="card__category">React · FastAPI · LangChain · LangGraph · ChromaDB</p>
+              <p class="card__desc">AI-powered repository intelligence platform built during a hackathon. Uses LangChain, LangGraph &amp; ChromaDB for deep code Q&amp;A and analysis.</p>
+              <a class="card__link" href="#work" aria-label="View Archaeon project">→</a>
+            </div>
+          </article>
+
+          <article class="card card--project" data-reveal>
+            <div class="card__media card__media--06" aria-hidden="true">
+              <span class="card__tag">06</span>
+              <div class="card__media-content card__media-content--center">
+                <p class="card__media-headline">AUTOMATE<br>BUSINESS.</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Car Agency Booking Platform</h3>
+              <p class="card__category">Full Stack · Business Automation</p>
+              <p class="card__desc">Business automation platform with booking management, email automation, payment tracking, admin dashboard &amp; full audit logs.</p>
+              <a class="card__link" href="#work" aria-label="View Car Agency project">→</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section section--exp" id="experience" aria-labelledby="exp-heading">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">Professional Experience</p>
+        </div>
+        <h2 id="exp-heading" class="sr-only">Professional Experience</h2>
+        <div class="exp-grid">
+          <div class="exp-card" data-reveal>
+            <div class="exp-card__header">
+              <div>
+                <h3 class="exp-card__title">Data &amp; AI Intern</h3>
+                <p class="exp-card__company">TVS Motor Company</p>
+              </div>
+              <span class="exp-card__badge">Internship</span>
+            </div>
+            <ul class="exp-card__list">
+              <li>Dataset preparation &amp; auto-annotation for computer vision models</li>
+              <li>XML conversion &amp; YOLO dataset processing pipelines</li>
+              <li>Worked in the Data &amp; AI department on production CV workflows</li>
+            </ul>
+            <div class="exp-card__tags">
+              <span>YOLO</span><span>OpenCV</span><span>Python</span><span>Computer Vision</span>
+            </div>
+          </div>
+          <div class="exp-card" data-reveal>
+            <div class="exp-card__header">
+              <div>
+                <h3 class="exp-card__title">Data Engineering Intern</h3>
+                <p class="exp-card__company">Bajaj Finance</p>
+              </div>
+              <span class="exp-card__badge">Internship</span>
+            </div>
+            <ul class="exp-card__list">
+              <li>Worked with SQL, RDBMS &amp; NoSQL data systems</li>
+              <li>EventHub integration &amp; real-time data streaming pipelines</li>
+              <li>Hands-on experience with enterprise-scale data infrastructure</li>
+            </ul>
+            <div class="exp-card__tags">
+              <span>SQL</span><span>NoSQL</span><span>EventHub</span><span>Data Streaming</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORKFLOW / SKILLS / CONTACT ============ -->
+    <section class="section section--alt" id="process" aria-labelledby="process-heading">
+      <div class="container workflow-contact-grid">
+
+        <!-- Workflow column -->
+        <div class="workflow-col">
+          <p class="eyebrow" data-reveal>My Workflow</p>
+          <h2 id="process-heading" class="sr-only">My Workflow</h2>
+
+          <ol class="workflow">
+            <li class="workflow__step" data-reveal>
+              <span class="workflow__num">01</span>
+              <div>
+                <h3 class="workflow__title">Understand</h3>
+                <p class="workflow__desc">Deep-diving into requirements, user needs, and system architecture before a single line of code.</p>
+              </div>
+            </li>
+            <li class="workflow__step" data-reveal>
+              <span class="workflow__num">02</span>
+              <div>
+                <h3 class="workflow__title">Design</h3>
+                <p class="workflow__desc">Planning APIs, database schemas, component trees, and AI pipelines with precision.</p>
+              </div>
+            </li>
+            <li class="workflow__step" data-reveal>
+              <span class="workflow__num">03</span>
+              <div>
+                <h3 class="workflow__title">Build</h3>
+                <p class="workflow__desc">Full-cycle development — React frontends, Node/Express APIs, ML models, and CV pipelines.</p>
+              </div>
+            </li>
+            <li class="workflow__step" data-reveal>
+              <span class="workflow__num">04</span>
+              <div>
+                <h3 class="workflow__title">Deploy</h3>
+                <p class="workflow__desc">Shipping to production on Render, cloud platforms, and on-premise with post-launch support.</p>
+              </div>
+            </li>
+            <li class="workflow__step" data-reveal>
+              <span class="workflow__num">05</span>
+              <div>
+                <h3 class="workflow__title">Iterate</h3>
+                <p class="workflow__desc">Monitoring, debugging, and continuously optimizing for performance and reliability.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Skills column -->
+        <div class="skills-col" data-reveal>
+          <p class="eyebrow">Skills &amp; Stack</p>
+          <ul class="chip-grid">
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> React.js</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> Next.js</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> TypeScript</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> Node.js</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> Express.js</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> MongoDB</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> PostgreSQL</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> Python</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> OpenCV / YOLO</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> LangChain</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> AWS · Docker</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> Tailwind CSS</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> REST APIs / JWT</li>
+            <li class="chip"><span class="chip__icon" aria-hidden="true">◈</span> Git / GitHub</li>
+          </ul>
+
+          <div class="award-card">
+            <span class="award-card__icon" aria-hidden="true">🏆</span>
+            <div>
+              <p class="award-card__title">AWS Certified</p>
+              <p class="award-card__desc">AWS Academy Cloud Architecting — Sep 2025 (60 hrs)</p>
+            </div>
+          </div>
+          <div class="award-card" style="margin-top:0.75rem">
+            <span class="award-card__icon" aria-hidden="true">📜</span>
+            <div>
+              <p class="award-card__title">Infosys Certified</p>
+              <p class="award-card__desc">Infosys Foundation Employability — Cloud Computing</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact column -->
+        <div class="contact-col" id="contact" data-reveal>
+          <p class="eyebrow">Let's Collaborate</p>
+          <h2 class="contact__heading">Have a project<br>in mind?</h2>
+          <p class="contact__pitch">I'm always open to discussing new projects, freelance opportunities, or full-time roles. Let's build something great together.</p>
+
+          <ul class="contact-list">
+            <li class="contact-list__item">
+              <span class="contact-list__icon" aria-hidden="true">✉</span>
+              <div>
+                <p class="contact-list__label">Email me</p>
+                <a class="contact-list__value" href="mailto:harleydavisja2@gmail.com">harleydavisja2@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__icon" aria-hidden="true">📍</span>
+              <div>
+                <p class="contact-list__label">Location</p>
+                <p class="contact-list__value">Hosur, Tamil Nadu, India</p>
+              </div>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__icon" aria-hidden="true">📞</span>
+              <div>
+                <p class="contact-list__label">Phone</p>
+                <a class="contact-list__value" href="tel:+916381224046">+91 6381224046</a>
+              </div>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__icon" aria-hidden="true">💼</span>
+              <div>
+                <p class="contact-list__label">LinkedIn</p>
+                <a class="contact-list__value" href="https://www.linkedin.com/in/harley-davis-j-a-2b39b6249/" target="_blank" rel="noopener">linkedin.com/in/harley-davis-j-a</a>
+              </div>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__icon" aria-hidden="true">⌥</span>
+              <div>
+                <p class="contact-list__label">GitHub</p>
+                <a class="contact-list__value" href="https://github.com/harleydavis2" target="_blank" rel="noopener">github.com/harleydavis2</a>
+              </div>
+            </li>
+          </ul>
+
+          <a class="btn btn--primary" href="mailto:harleydavisja2@gmail.com" id="cta-collaborate">Let's create something amazing <span aria-hidden="true">→</span></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ ABOUT / SPOTLIGHT ============ -->
+    <section class="section section--spotlight" id="about" aria-label="About">
+      <div class="container spotlight__container">
+        <div class="spotlight__img-wrap" data-reveal>
+          <img
+            src="ChatGPT Image Jul 16, 2026, 11_55_44 AM.png"
+            alt="Harley Davis J A — developer portrait"
+            class="spotlight__photo"
+            loading="lazy"
+          >
+          <div class="spotlight__img-glow" aria-hidden="true"></div>
+        </div>
+        <div class="spotlight__text" data-reveal>
+          <p class="eyebrow">About Me</p>
+          <h2 class="spotlight__heading">Building with<br><span class="accent">code &amp; intelligence</span></h2>
+          <p class="spotlight__body">I'm Harley Davis, a Full Stack Developer specializing in AI. I enjoy building software that solves real business problems — my experience spans MERN-stack web apps, AI/ML systems, backend architecture, cloud, and scalable software. I've shipped ERP systems, POS software, ordering platforms, booking automation, and AI research projects — all production-grade.</p>
+          <ul class="spotlight__highlights">
+            <li><span class="accent-num">6</span><span>Projects Shipped</span></li>
+            <li><span class="accent-num">2</span><span>Internships</span></li>
+            <li><span class="accent-num">97</span><span>% AI Accuracy</span></li>
+          </ul>
+          <div class="currently-learning" data-reveal>
+            <p class="currently-learning__label">Currently Learning</p>
+            <div class="currently-learning__tags">
+              <span>System Design</span>
+              <span>AI Agents</span>
+              <span>LLMs</span>
+              <span>DevOps</span>
+              <span>Cloud Architecture</span>
+            </div>
+          </div>
+          <a class="btn btn--outline" href="#contact" id="cta-about">Start a project →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__social">
+        <p class="footer__label">Let's Connect</p>
+        <div class="footer__icons">
+          <a href="https://www.linkedin.com/in/harley-davis-j-a-2b39b6249/" target="_blank" rel="noopener" class="footer__icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3.2 8.75h3.5V21H3.2V8.75zM9.5 8.75h3.36v1.68h.05c.47-.87 1.6-1.78 3.3-1.78 3.53 0 4.18 2.32 4.18 5.34V21h-3.5v-6.28c0-1.5-.03-3.43-2.09-3.43-2.1 0-2.42 1.64-2.42 3.33V21H9.5V8.75z"/></svg>
+          </a>
+          <a href="https://github.com/harleydavis2" target="_blank" rel="noopener" class="footer__icon" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="mailto:harleydavisja2@gmail.com" class="footer__icon" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a href="tel:+916381224046" class="footer__icon" aria-label="Phone">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <p class="footer__quote">"Software should solve real business problems — with<br><span>scalability, clean architecture, and meaningful UX."</span></p>
+
+      <a class="footer__resume" href="Harley_Davis_Resume_2.pdf" download id="btn-resume">
+        Download my resume
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
