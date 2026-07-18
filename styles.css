@@ -321,16 +321,15 @@ body.nav-open { overflow: hidden; }
   justify-content: flex-end;
 }
 
-/* Giant background wordmark — visible on all screen sizes */
+/* Giant background wordmark — hidden on mobile, shown on tablet+ */
 .hero__bg-wordmark {
-  display: block;
+  display: none;
   position: absolute;
   top: -0.08em;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
-  /* mobile: smaller so it fits without overflow */
-  font-size: clamp(4rem, 22vw, 28rem);
+  font-size: clamp(8rem, 35vw, 28rem);
   line-height: .85;
   letter-spacing: -.02em;
   color: var(--color-accent);
@@ -338,8 +337,7 @@ body.nav-open { overflow: hidden; }
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  /* subtle on mobile so it doesn't overpower text */
-  opacity: 0.55;
+  opacity: 1;
 }
 
 /* ── MOBILE HERO LAYOUT (default / < 640px) ─────────────────────────────── */
