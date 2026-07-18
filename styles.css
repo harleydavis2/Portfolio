@@ -316,22 +316,20 @@ body.nav-open { overflow: hidden; }
 .hero {
   position: relative;
   overflow: hidden;
-  /* Let content drive height on mobile; min-height set per breakpoint */
-  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-/* Giant background wordmark */
+/* Giant background wordmark — hidden on mobile, shown on tablet+ */
 .hero__bg-wordmark {
+  display: none;
   position: absolute;
   top: -0.08em;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
-  /* Mobile-first: purely decorative, very subtle */
-  font-size: clamp(3rem, 18vw, 28rem);
+  font-size: clamp(8rem, 35vw, 28rem);
   line-height: .85;
   letter-spacing: -.02em;
   color: var(--color-accent);
@@ -339,72 +337,96 @@ body.nav-open { overflow: hidden; }
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  opacity: 0.18; /* near-invisible on mobile so text is always readable */
+  opacity: 1;
 }
 
+/* ── MOBILE HERO LAYOUT (default / < 640px) ─────────────────────────────── */
 .hero__container {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  /* intro first on mobile — name/title before photo */
-  grid-template-areas:
-    "intro"
-    "portrait"
-    "meta";
-  gap: 1.25rem;
-  padding-bottom: 2.5rem;
-  padding-top: 2rem; /* tight — topbar handles top space */
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
 
-/* Portrait centre */
+/* Portrait — full-width banner on mobile */
 .hero__portrait {
   grid-area: portrait;
   position: relative;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  /* fixed height so it's impactful but not screen-filling */
+  height: 58vw;
+  min-height: 220px;
+  max-height: 340px;
+  overflow: hidden;
+}
+/* gradient fade from image into dark bg */
+.hero__portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 30%,
+    rgba(10,10,10,0.55) 65%,
+    var(--color-bg) 100%
+  );
+  pointer-events: none;
 }
 .hero__photo {
   width: 100%;
-  /* Tight cap on mobile — photo is supporting element, not hero */
-  max-width: 220px;
-  max-height: 260px;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  object-position: top center;
-  filter: drop-shadow(0 20px 60px rgba(0,0,0,.8));
+  object-position: center 10%;
+  display: block;
+  filter: none;
   border-radius: 0;
-  margin-inline: auto;
+  /* override any max-width constraints on mobile */
+  max-width: 100%;
+  max-height: 100%;
+  margin-inline: 0;
 }
 
-/* Intro left */
-.hero__intro { grid-area: intro; }
-.hero__hi    { font-size:.9rem; color:var(--color-muted); margin-bottom:.2rem; }
+/* Text content block below portrait */
+.hero__intro {
+  grid-area: intro;
+  padding: 1rem 1.5rem 0;
+}
+.hero__hi    { font-size:.82rem; color:var(--color-muted); margin-bottom:.15rem; letter-spacing:.04em; }
 .hero__name  {
   font-family: var(--font-display);
-  /* Better floor for very small phones */
-  font-size: clamp(2.2rem, 11vw, 5.5rem);
-  line-height: .92; letter-spacing:-.01em;
-  margin-bottom: .6rem;
+  font-size: clamp(2.6rem, 13vw, 4.5rem);
+  line-height: .9; letter-spacing:-.01em;
+  margin-bottom: .5rem;
+}
+/* Accent underline on the name */
+.hero__name::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background: var(--color-accent);
+  margin-top: .5rem;
+  border-radius: 2px;
 }
 .hero__title {
   color: var(--color-accent); font-weight:700;
-  /* Slightly smaller on mobile */
-  font-size: clamp(.85rem, 3.5vw, 1.05rem);
-  letter-spacing:.04em; margin-bottom:.75rem;
+  font-size: clamp(.78rem, 3.2vw, 1rem);
+  letter-spacing:.06em; margin-bottom:.65rem;
+  text-transform: uppercase;
 }
-.hero__bio   {
-  color:var(--color-muted);
-  max-width: 100%; /* full width on mobile */
-  font-size:.9rem;
-  line-height: 1.6;
+.hero__bio {
+  color: var(--color-muted);
+  font-size: .88rem;
+  line-height: 1.65;
+  max-width: 100%;
+  margin-bottom: 0;
 }
 
-/* Meta right */
+/* Stats — horizontal pill row on mobile */
 .hero__meta {
   grid-area: meta;
-  display: flex; flex-direction:column; gap:1.5rem;
-  align-items: flex-start;
+  padding: 1.25rem 1.5rem 2rem;
 }
 .hero__badge {
   position:relative; width:110px; height:110px; display:none;
@@ -422,20 +444,49 @@ body.nav-open { overflow: hidden; }
 }
 @keyframes spin { to { transform:rotate(360deg); } }
 
-.hero__stats { display:flex; flex-direction:column; gap:.75rem; width:100%; }
-.hero__stat  {
-  display:flex; justify-content:space-between; gap:1rem;
-  padding-bottom:.75rem; border-bottom:1px solid var(--color-border);
+/* Stats row — horizontal on mobile */
+.hero__stats {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-md);
+  overflow: hidden;
 }
-.hero__stat dt { color:var(--color-faint); font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; }
-.hero__stat dd { font-weight:700; font-size:.88rem; }
+.hero__stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: .85rem .5rem;
+  gap: .2rem;
+  border-bottom: none;
+  border-right: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.hero__stat:last-child { border-right: none; }
+.hero__stat dt {
+  color: var(--color-faint);
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  text-align: center;
+}
+.hero__stat dd {
+  font-weight: 700;
+  font-size: .82rem;
+  text-align: center;
+  color: var(--color-text);
+}
 
-/* ---------- HERO — Extra small phones (≤ 390px) ---------- */
-@media (max-width: 390px) {
-  .hero__bg-wordmark { font-size: clamp(2.5rem, 14vw, 4rem); opacity: 0.12; }
-  .hero__container   { padding-top: 1.5rem; gap: 1rem; padding-bottom: 2rem; }
-  .hero__photo       { max-width: 180px; max-height: 220px; }
-  .hero__name        { font-size: clamp(2rem, 12vw, 3rem); }
+/* ---------- HERO — Extra small phones (≤ 360px) ---------- */
+@media (max-width: 360px) {
+  .hero__portrait { height: 65vw; }
+  .hero__name     { font-size: clamp(2.2rem, 14vw, 3.2rem); }
+  .hero__stat dt  { font-size: .55rem; }
+  .hero__stat dd  { font-size: .78rem; }
 }
 
 /* ---------- 7. SECTION HEADER ---------- */
@@ -738,45 +789,100 @@ a.contact-list__value:hover { color:var(--color-accent); }
 }
 
 /* ---------- 12. RESPONSIVE ---------- */
-@media (min-width: 540px) and (max-width: 639px) {
-  /* Landscape-phone / large phone: show intro + portrait side-by-side */
-  .hero {
-    min-height: 90svh;
-  }
-  .hero__container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "intro  portrait"
-      "meta   portrait";
-    align-items: end;
-    padding-top: 3rem;
-    gap: 1.5rem;
-  }
-  .hero__photo {
-    max-width: 100%;
-    max-height: 340px;
-  }
-  .hero__portrait { align-items: flex-end; }
-  .hero__bg-wordmark { font-size: clamp(5rem, 22vw, 28rem); opacity: 0.5; }
-}
 
+/* Tablet portrait and up — switch to 2-column grid hero */
 @media (min-width: 640px) {
   .hero {
     min-height: 90svh;
   }
+
+  /* Restore grid layout */
   .hero__container {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "intro  portrait"
       "meta   portrait";
     align-items: end;
-    padding-top: 4rem;
+    padding: 6rem 0 4rem;
   }
-  .hero__photo { max-width: 100%; max-height: none; }
-  .hero__portrait { align-items: flex-end; }
-  /* Wordmark visible but not overwhelming at tablet */
-  .hero__bg-wordmark { opacity: 0.45; font-size: clamp(6rem, 28vw, 28rem); }
-  .hero__bio { max-width: 34ch; }
+
+  /* Show wordmark again at tablet */
+  .hero__bg-wordmark {
+    display: block;
+    opacity: 0.45;
+    font-size: clamp(6rem, 28vw, 28rem);
+  }
+
+  /* Restore portrait to normal flow */
+  .hero__portrait {
+    position: relative;
+    width: auto;
+    height: auto;
+    min-height: unset;
+    max-height: unset;
+    overflow: visible;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  /* Remove mobile gradient overlay */
+  .hero__portrait::after { display: none; }
+
+  /* Restore photo constraints */
+  .hero__photo {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    object-position: top center;
+    filter: drop-shadow(0 20px 60px rgba(0,0,0,.8));
+    margin-inline: auto;
+  }
+
+  /* Restore intro to normal padding */
+  .hero__intro { padding: 0; }
+
+  /* Remove accent underline at tablet+ */
+  .hero__name::after { display: none; }
+
+  /* Restore text sizes */
+  .hero__hi    { font-size: 1rem; }
+  .hero__name  { font-size: clamp(2.8rem, 6vw, 5.5rem); margin-bottom: .75rem; }
+  .hero__title { font-size: 1.05rem; letter-spacing: .04em; margin-bottom: .85rem; text-transform: none; }
+  .hero__bio   { max-width: 34ch; font-size: .95rem; }
+
+  /* Restore meta */
+  .hero__meta {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  /* Restore stats to vertical */
+  .hero__stats {
+    flex-direction: column;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    gap: .85rem;
+  }
+  .hero__stat {
+    flex: unset;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 .85rem 0;
+    background: transparent;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    gap: 1rem;
+  }
+  .hero__stat:last-child { border-bottom: none; padding-bottom: 0; }
+  .hero__stat dt { text-align: left; font-size: .72rem; }
+  .hero__stat dd { text-align: right; font-size: .88rem; }
 }
 
 @media (min-width: 768px) {
