@@ -130,22 +130,33 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
 }
 .topbar__inner {
   display:flex; align-items:center; justify-content:space-between;
-  gap:1rem; flex-wrap:wrap;
+  gap:1rem; flex-wrap:nowrap;
 }
 .topbar__right {
   display:flex; align-items:center; gap:1.25rem;
+  flex-shrink: 0;
 }
 .topbar__role {
   font-size:.72rem; font-weight:700;
   letter-spacing:.16em; text-transform:uppercase;
   color: var(--color-accent);
+  /* truncate on tiny screens */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 .topbar__cta {
   font-size:.8rem; font-weight:600; color:var(--color-muted);
   display:inline-flex; align-items:center; gap:.4rem;
   transition: color var(--t-fast);
+  white-space: nowrap;
 }
 .topbar__cta:hover { color:var(--color-text); }
+/* Hide the CTA label text on very small screens, keep arrow icon */
+@media (max-width: 480px) {
+  .topbar__cta { display: none; }
+}
 
 /* ---------- BURGER BUTTON ---------- */
 .burger {
@@ -305,7 +316,7 @@ body.nav-open { overflow: hidden; }
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 90vh;
+  min-height: 100svh; /* full viewport on mobile, safe-area aware */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -318,7 +329,8 @@ body.nav-open { overflow: hidden; }
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
-  font-size: clamp(8rem, 35vw, 28rem);
+  /* Smaller floor on mobile to prevent horizontal overflow */
+  font-size: clamp(4.5rem, 28vw, 28rem);
   line-height: .85;
   letter-spacing: -.02em;
   color: var(--color-accent);
@@ -326,6 +338,8 @@ body.nav-open { overflow: hidden; }
   pointer-events: none;
   user-select: none;
   z-index: 0;
+  /* Slightly lower opacity on mobile for legibility */
+  opacity: 0.8;
 }
 
 .hero__container {
@@ -337,9 +351,10 @@ body.nav-open { overflow: hidden; }
     "portrait"
     "intro"
     "meta";
-  gap: 2rem;
-  padding-bottom: 4rem;
-  padding-top: 8rem;
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+  /* Reduced top padding on mobile — topbar is already sticky */
+  padding-top: 5rem;
 }
 
 /* Portrait centre */
@@ -351,7 +366,9 @@ body.nav-open { overflow: hidden; }
 }
 .hero__photo {
   width: 100%;
-  max-width: 340px;
+  /* Cap height so portrait doesn't dominate the mobile viewport */
+  max-width: 260px;
+  max-height: 320px;
   height: auto;
   object-fit: cover;
   object-position: top center;
@@ -362,23 +379,31 @@ body.nav-open { overflow: hidden; }
 
 /* Intro left */
 .hero__intro { grid-area: intro; }
-.hero__hi    { font-size:1rem; color:var(--color-muted); margin-bottom:.2rem; }
+.hero__hi    { font-size:.9rem; color:var(--color-muted); margin-bottom:.2rem; }
 .hero__name  {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 10vw, 5.5rem);
+  /* Better floor for very small phones */
+  font-size: clamp(2.2rem, 11vw, 5.5rem);
   line-height: .92; letter-spacing:-.01em;
-  margin-bottom: .75rem;
+  margin-bottom: .6rem;
 }
 .hero__title {
-  color: var(--color-accent); font-weight:700; font-size:1.05rem;
-  letter-spacing:.04em; margin-bottom:.85rem;
+  color: var(--color-accent); font-weight:700;
+  /* Slightly smaller on mobile */
+  font-size: clamp(.85rem, 3.5vw, 1.05rem);
+  letter-spacing:.04em; margin-bottom:.75rem;
 }
-.hero__bio   { color:var(--color-muted); max-width:34ch; font-size:.95rem; }
+.hero__bio   {
+  color:var(--color-muted);
+  max-width: 100%; /* full width on mobile */
+  font-size:.9rem;
+  line-height: 1.6;
+}
 
 /* Meta right */
 .hero__meta {
   grid-area: meta;
-  display: flex; flex-direction:column; gap:2rem;
+  display: flex; flex-direction:column; gap:1.5rem;
   align-items: flex-start;
 }
 .hero__badge {
@@ -397,13 +422,21 @@ body.nav-open { overflow: hidden; }
 }
 @keyframes spin { to { transform:rotate(360deg); } }
 
-.hero__stats { display:flex; flex-direction:column; gap:.85rem; width:100%; }
+.hero__stats { display:flex; flex-direction:column; gap:.75rem; width:100%; }
 .hero__stat  {
   display:flex; justify-content:space-between; gap:1rem;
-  padding-bottom:.85rem; border-bottom:1px solid var(--color-border);
+  padding-bottom:.75rem; border-bottom:1px solid var(--color-border);
 }
 .hero__stat dt { color:var(--color-faint); font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; }
 .hero__stat dd { font-weight:700; font-size:.88rem; }
+
+/* ---------- HERO — Extra small phones (≤ 390px) ---------- */
+@media (max-width: 390px) {
+  .hero__bg-wordmark { font-size: clamp(3.5rem, 24vw, 6rem); opacity: 0.65; }
+  .hero__container   { padding-top: 4rem; gap: 1.25rem; }
+  .hero__photo       { max-width: 220px; max-height: 270px; }
+  .hero__name        { font-size: clamp(2rem, 12vw, 3rem); }
+}
 
 /* ---------- 7. SECTION HEADER ---------- */
 .section__head {
@@ -705,6 +738,23 @@ a.contact-list__value:hover { color:var(--color-accent); }
 }
 
 /* ---------- 12. RESPONSIVE ---------- */
+@media (min-width: 540px) and (max-width: 639px) {
+  /* Landscape-phone / large phone: show intro + portrait side-by-side */
+  .hero__container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "intro  portrait"
+      "meta   portrait";
+    align-items: end;
+    padding-top: 5rem;
+  }
+  .hero__photo {
+    max-width: 100%;
+    max-height: 360px;
+  }
+  .hero__portrait { align-items: flex-end; }
+}
+
 @media (min-width: 640px) {
   .hero__container {
     grid-template-columns: 1fr 1fr;
@@ -713,8 +763,10 @@ a.contact-list__value:hover { color:var(--color-accent); }
       "meta   portrait";
     align-items: end;
   }
-  .hero__photo { max-width: 100%; }
+  .hero__photo { max-width: 100%; max-height: none; }
   .hero__portrait { align-items: flex-end; }
+  .hero__bg-wordmark { opacity: 1; }
+  .hero__bio { max-width: 34ch; }
 }
 
 @media (min-width: 768px) {
