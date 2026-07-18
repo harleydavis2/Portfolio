@@ -316,7 +316,8 @@ body.nav-open { overflow: hidden; }
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 100svh; /* full viewport on mobile, safe-area aware */
+  /* Let content drive height on mobile; min-height set per breakpoint */
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -329,8 +330,8 @@ body.nav-open { overflow: hidden; }
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
-  /* Smaller floor on mobile to prevent horizontal overflow */
-  font-size: clamp(4.5rem, 28vw, 28rem);
+  /* Mobile-first: purely decorative, very subtle */
+  font-size: clamp(3rem, 18vw, 28rem);
   line-height: .85;
   letter-spacing: -.02em;
   color: var(--color-accent);
@@ -338,8 +339,7 @@ body.nav-open { overflow: hidden; }
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  /* Slightly lower opacity on mobile for legibility */
-  opacity: 0.8;
+  opacity: 0.18; /* near-invisible on mobile so text is always readable */
 }
 
 .hero__container {
@@ -347,14 +347,14 @@ body.nav-open { overflow: hidden; }
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
+  /* intro first on mobile — name/title before photo */
   grid-template-areas:
-    "portrait"
     "intro"
+    "portrait"
     "meta";
-  gap: 1.5rem;
-  padding-bottom: 3rem;
-  /* Reduced top padding on mobile — topbar is already sticky */
-  padding-top: 5rem;
+  gap: 1.25rem;
+  padding-bottom: 2.5rem;
+  padding-top: 2rem; /* tight — topbar handles top space */
 }
 
 /* Portrait centre */
@@ -366,9 +366,9 @@ body.nav-open { overflow: hidden; }
 }
 .hero__photo {
   width: 100%;
-  /* Cap height so portrait doesn't dominate the mobile viewport */
-  max-width: 260px;
-  max-height: 320px;
+  /* Tight cap on mobile — photo is supporting element, not hero */
+  max-width: 220px;
+  max-height: 260px;
   height: auto;
   object-fit: cover;
   object-position: top center;
@@ -432,9 +432,9 @@ body.nav-open { overflow: hidden; }
 
 /* ---------- HERO — Extra small phones (≤ 390px) ---------- */
 @media (max-width: 390px) {
-  .hero__bg-wordmark { font-size: clamp(3.5rem, 24vw, 6rem); opacity: 0.65; }
-  .hero__container   { padding-top: 4rem; gap: 1.25rem; }
-  .hero__photo       { max-width: 220px; max-height: 270px; }
+  .hero__bg-wordmark { font-size: clamp(2.5rem, 14vw, 4rem); opacity: 0.12; }
+  .hero__container   { padding-top: 1.5rem; gap: 1rem; padding-bottom: 2rem; }
+  .hero__photo       { max-width: 180px; max-height: 220px; }
   .hero__name        { font-size: clamp(2rem, 12vw, 3rem); }
 }
 
@@ -740,32 +740,42 @@ a.contact-list__value:hover { color:var(--color-accent); }
 /* ---------- 12. RESPONSIVE ---------- */
 @media (min-width: 540px) and (max-width: 639px) {
   /* Landscape-phone / large phone: show intro + portrait side-by-side */
+  .hero {
+    min-height: 90svh;
+  }
   .hero__container {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "intro  portrait"
       "meta   portrait";
     align-items: end;
-    padding-top: 5rem;
+    padding-top: 3rem;
+    gap: 1.5rem;
   }
   .hero__photo {
     max-width: 100%;
-    max-height: 360px;
+    max-height: 340px;
   }
   .hero__portrait { align-items: flex-end; }
+  .hero__bg-wordmark { font-size: clamp(5rem, 22vw, 28rem); opacity: 0.5; }
 }
 
 @media (min-width: 640px) {
+  .hero {
+    min-height: 90svh;
+  }
   .hero__container {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "intro  portrait"
       "meta   portrait";
     align-items: end;
+    padding-top: 4rem;
   }
   .hero__photo { max-width: 100%; max-height: none; }
   .hero__portrait { align-items: flex-end; }
-  .hero__bg-wordmark { opacity: 1; }
+  /* Wordmark visible but not overwhelming at tablet */
+  .hero__bg-wordmark { opacity: 0.45; font-size: clamp(6rem, 28vw, 28rem); }
   .hero__bio { max-width: 34ch; }
 }
 
@@ -795,6 +805,8 @@ a.contact-list__value:hover { color:var(--color-accent); }
   .hero__meta { align-items:flex-end; }
   .hero__stats { width:auto; min-width:210px; }
   .hero__stat  { justify-content:flex-end; gap:2rem; }
+  /* Full wordmark impact on desktop */
+  .hero__bg-wordmark { opacity: 1; font-size: clamp(8rem, 35vw, 28rem); }
 
   .workflow-contact-grid {
     grid-template-columns: 1fr 1fr 1fr;
