@@ -315,6 +315,7 @@ body.nav-open { overflow: hidden; }
 /* ---------- 6. HERO ---------- */
 .hero {
   position: relative;
+  /* overflow hidden only clips the wordmark from causing scrollbars */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -904,38 +905,54 @@ a.contact-list__value:hover { color:var(--color-accent); }
     grid-template-areas: "intro portrait meta";
     align-items: end;
     padding-top: 6rem;
-    padding-bottom: 5rem;
+    padding-bottom: 0;
+    /* row height drives the portrait size */
+    min-height: 90vh;
   }
 
-  /* Portrait — uncropped, full image visible */
+  /* Portrait — full image, no crop */
   .hero__portrait {
-    justify-content: center;
-    overflow: hidden;
     position: relative;
+    justify-content: center;
+    align-items: flex-end;
+    display: flex;
+    /* allow image to overflow the column bounds vertically */
+    overflow: visible;
+    height: 100%;
   }
+
   /* Subtle bottom fade on desktop */
   .hero__portrait::after {
     display: block;
     content: '';
     position: absolute;
-    inset: 0;
+    /* only cover the bottom 40% */
+    top: auto;
+    bottom: 0;
+    left: -30px;
+    right: -30px;
+    height: 45%;
     background: linear-gradient(
       to bottom,
-      transparent 55%,
-      rgba(10,10,10,0.45) 80%,
+      transparent 0%,
+      rgba(10,10,10,0.5) 65%,
       var(--color-bg) 100%
     );
     pointer-events: none;
+    z-index: 2;
   }
 
   .hero__photo {
-    /* Let the full image show — no artificial crop */
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: bottom center;
+    /* Scale by height so full width is always visible — never crops sideways */
+    width: auto;
+    height: 88vh;
+    max-height: 88vh;
+    max-width: none;
+    object-fit: unset;
+    display: block;
     margin-inline: auto;
+    position: relative;
+    z-index: 1;
     filter: drop-shadow(0 20px 60px rgba(0,0,0,.8));
   }
 
